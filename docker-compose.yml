@@ -1,32 +1,35 @@
 version: '3'
 
 volumes:
-  kitty_pg_data:
+  pg_data:
   static:
 
 services:
-  kitty_db:
-    image: postgres:13
+  db:
+    image: postgres:13.10
     env_file: .env
     volumes:
-      - kitty_pg_data:/var/lib/postgresql/data
-  kitty_backend:
-    image: adelkhakimov/kitty_backend
+      - pg_data:/var/lib/postgresql/data
+  kitty_back:
+    # Из какого Dockerfile собирать образ для этого контейнера:
+    build: ./backend/
     env_file: .env
+    # Какие контейнеры нужно запустить до старта этого контейнера:
     depends_on:
-      - kitty_db
+      - db
     volumes:
-      - static:/kitty_backend
-  kitty_frontend:
-    image: adelkhakimov/kitty_frontend
+      - static:/backend_static
+  # Имя третьего контейнера. Это контейнер с фронтендом
+  kitty_front:
     env_file: .env
+    build: ./frontend/
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static:/frontend_static
+
   nginx:
-    image: adelkhakimov/kitty_nginx
-    env_file: .env
+    build: ./nginx/
     volumes:
-      - static:/staticfiles
+      - static:/staticfiles/
     ports:
       - 9000:80
