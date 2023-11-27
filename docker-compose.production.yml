@@ -1,0 +1,32 @@
+version: '3'
+
+volumes:
+  pg_data:
+  static:
+
+services:
+  db:
+    image: postgres:13.10
+    env_file: .env
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+  kitty_back:
+    image: adelkhakimov/kitty_back
+    env_file: .env
+    depends_on:
+      - db
+    volumes:
+      - static:/backend_static
+  kitty_front:
+    image: adelkhakimov/kitty_front
+    env_file: .env
+    command: cp -r /app/build/. /frontend_static/
+    volumes:
+      - static:/frontend_static
+
+  nginx:
+    image: adelkhakimov/nginx
+    volumes:
+      - static:/staticfiles/
+    ports:
+      - 9000:80
