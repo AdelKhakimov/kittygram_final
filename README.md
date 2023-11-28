@@ -1,26 +1,45 @@
-#  Как работать с репозиторием финального задания
+# Проект "Kittygram"
 
-## Что нужно сделать
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/AdelKhakimov/kittygram_final//Main%20Kitty%20workflow?label=workflow)](https://github.com/AdelKhakimov/kittygram_final/actions)
 
-Настроить запуск проекта Kittygram в контейнерах и CI/CD с помощью GitHub Actions
+## Описание
 
-## Как проверить работу с помощью автотестов
+Kittygram - соцсеть для ваших котиков.
 
-В корне репозитория создайте файл tests.yml со следующим содержимым:
-```yaml
-repo_owner: ваш_логин_на_гитхабе
-kittygram_domain: полная ссылка (https://доменное_имя) на ваш проект Kittygram
-taski_domain: полная ссылка (https://доменное_имя) на ваш проект Taski
-dockerhub_username: ваш_логин_на_докерхабе
-```
+### Локальное развертывание
 
-Скопируйте содержимое файла `.github/workflows/main.yml` в файл `kittygram_workflow.yml` в корневой директории проекта.
+1. Клонируйте репозиторий:
 
-Для локального запуска тестов создайте виртуальное окружение, установите в него зависимости из backend/requirements.txt и запустите в корневой директории проекта `pytest`.
+    ```bash
+    git clone https://github.com/AdelKhakimov/kittygram_final.git
+    ```
 
-## Чек-лист для проверки перед отправкой задания
+2. Установите зависимости:
 
-- Проект Taski доступен по доменному имени, указанному в `tests.yml`.
-- Проект Kittygram доступен по доменному имени, указанному в `tests.yml`.
-- Пуш в ветку main запускает тестирование и деплой Kittygram, а после успешного деплоя вам приходит сообщение в телеграм.
-- В корне проекта есть файл `kittygram_workflow.yml`.
+    ```bash
+    # Пример для Python проекта с использованием pip
+    pip install -r requirements.txt
+    ```
+
+3. Запустите приложение:
+
+    ```bash
+    # Пример для Django проекта
+    python manage.py runserver
+    ```
+
+## Ссылки
+
+- **Развернутое приложение**: [Ссылка на развернутое приложение](https://kittygramadel.ddns.net/)
+- **Workflow на GitHub**: [Статус Workflow](https://github.com/AdelKhakimov/kittygram_final/actions)
+
+## Автор
+
+- Адель Хакимов
+- harso96@yandex.ru
+- https://github.com/AdelKhakimov
+
+## Используемые технологии
+
+- Python
+- Django
