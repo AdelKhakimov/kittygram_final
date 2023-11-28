@@ -1,6 +1,6 @@
 # Проект "Kittygram"
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/AdelKhakimov/kittygram_final//Main%20Kitty%20workflow?label=workflow)](https://github.com/AdelKhakimov/kittygram_final/actions)
+[![GitHub Workflow Status](https://github.com/AdelKhakimov/kittygram_final/actions)
 
 ## Описание
 
