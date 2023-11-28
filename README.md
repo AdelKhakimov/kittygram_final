@@ -1,6 +1,5 @@
 # Проект "Kittygram"
 
-[GitHub Workflow Status](https://github.com/AdelKhakimov/kittygram_final/actions)
 
 ## Описание
 
