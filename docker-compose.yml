@@ -11,15 +11,12 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
   kitty_back:
-    # Из какого Dockerfile собирать образ для этого контейнера:
     build: ./backend/
     env_file: .env
-    # Какие контейнеры нужно запустить до старта этого контейнера:
     depends_on:
       - db
     volumes:
       - static:/backend_static
-  # Имя третьего контейнера. Это контейнер с фронтендом
   kitty_front:
     env_file: .env
     build: ./frontend/
