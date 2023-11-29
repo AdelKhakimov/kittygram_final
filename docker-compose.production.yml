@@ -3,7 +3,6 @@ version: '3'
 volumes:
   pg_data:
   static:
-  media:
 
 services:
   db:
@@ -18,7 +17,6 @@ services:
       - db
     volumes:
       - static:/backend_static
-      - ./media:/app/media
   kitty_front:
     image: adelkhakimov/kitty_front
     env_file: .env
@@ -30,6 +28,5 @@ services:
     image: adelkhakimov/nginx
     volumes:
       - static:/staticfiles/
-      - media:/app/media
     ports:
       - 9000:80
