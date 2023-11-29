@@ -3,6 +3,7 @@ version: '3'
 volumes:
   pg_data:
   static:
+  media:
 
 services:
   db:
@@ -29,5 +30,6 @@ services:
     image: adelkhakimov/nginx
     volumes:
       - static:/staticfiles/
+      - media:/app/media
     ports:
       - 9000:80
