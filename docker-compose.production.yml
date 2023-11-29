@@ -17,6 +17,7 @@ services:
       - db
     volumes:
       - static:/backend_static
+      - ./media:/app/media
   kitty_front:
     image: adelkhakimov/kitty_front
     env_file: .env
