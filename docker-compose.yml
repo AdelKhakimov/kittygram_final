@@ -10,15 +10,13 @@ services:
     env_file: .env
     volumes:
       - pg_data:/var/lib/postgresql/data
-
   kitty_back:
     build: ./backend/
     env_file: .env
-    volumes:
-      - static:/backend_static
     depends_on:
       - db
-
+    volumes:
+      - static:/backend_static
   kitty_front:
     env_file: .env
     build: ./frontend/
